@@ -29,9 +29,11 @@ def get_ligature_source(fontname):
             return 'fira/FiraCode-%s.otf' % weight
 
     # No exact match. Guess that we want 'Bold' if the font name has 'Bold' in
-    # it, and 'Regular' otherwise.
-    if 'Bold' in fontname:
+    # it, 'Light' if the font name has 'Light' in it, and 'Regular' otherwise.
+    if 'Bold' in fontname or 'bold' in fontname:
         return 'fira/FiraCode-Bold.otf'
+    elif 'Light' in fontname:
+        return 'fira/FiraCode-Light.otf'
     return 'fira/FiraCode-Regular.otf'
 
 def get_output_font_details(fontpath):
